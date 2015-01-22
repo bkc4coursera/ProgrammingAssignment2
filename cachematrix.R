@@ -87,3 +87,42 @@ cacheSolve <- function(x, ...) {
     return (mInv)        
 }
 
+## How to test it
+##
+## Start R and set the appropriate working directory
+##
+## > source("cachematrix.R")
+##
+## 1. Create a special matrix object
+##
+## > mymatrixobj <- makeCacheMatrix()
+##
+## 2. Set the data matrix values
+##
+## > mymatrixobj$set(matrix(8:11,2,2))
+##
+## 3. Run cacheSolve() first time. This should display that there is nothing
+## in the cache and the inverse should be computed and stored
+##
+## > cacheSolve(mymatrixobj)
+##
+## Inverse not yet computed... Doing it now
+## Retrieving the matrix data...
+## Computing the inverse...
+## Updating the cache...
+##     [,1] [,2]
+## [1,] -5.5    5
+## [2,]  4.5   -4
+##
+##
+## 4. Run cacheSolve() 2nd time. This time the value should be read from the cache
+##
+## > cacheSolve(mymatrixobj)
+##
+## Matrix inverse already computed. Getting cached data
+##     [,1] [,2]
+## [1,] -5.5    5
+## [2,]  4.5   -4
+##
+## That should be a definitive test for this program.
+
